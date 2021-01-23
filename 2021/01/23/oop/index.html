@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="x2Nyyn94LTgPTwGQcXSMSaxye7qGkzNWZaOsli3xR1M">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"afashs.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="미리 말하지만 나는 객체지향을 싫어한다. 왜냐면 공부하면 할수록 더 좋은 패러다임이 많고 이에 동의하는 사람들이 존재하기 때문이다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object Oriented Programming">
+<meta property="og:url" content="http://afashs.github.io/2021/01/23/oop/index.html">
+<meta property="og:site_name" content="afashs">
+<meta property="og:description" content="미리 말하지만 나는 객체지향을 싫어한다. 왜냐면 공부하면 할수록 더 좋은 패러다임이 많고 이에 동의하는 사람들이 존재하기 때문이다.">
+<meta property="og:locale" content="ko_KR">
+<meta property="article:published_time" content="2021-01-23T09:52:37.000Z">
+<meta property="article:modified_time" content="2021-01-23T10:03:40.644Z">
+<meta property="article:author" content="afashs">
+<meta property="article:tag" content="TIL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://afashs.github.io/2021/01/23/oop/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'ko'
+  };
+</script>
+
+  <title>Object Oriented Programming | afashs</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="afashs" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">afashs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>홈</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>태그</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>카테고리</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>검색
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/afashs" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="ko">
+    <link itemprop="mainEntityOfPage" href="http://afashs.github.io/2021/01/23/oop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="afashs">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="afashs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Object Oriented Programming
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">작성일</span>
+              
+
+              <time title="Post created: 2021-01-23 18:52:37 / Updated at: 19:03:40" itemprop="dateCreated datePublished" datetime="2021-01-23T18:52:37+09:00">2021-01-23</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/01/23/oop/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/01/23/oop/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>미리 말하지만 나는 객체지향을 싫어한다. 왜냐면 공부하면 할수록 더 좋은 패러다임이 많고 이에 동의하는 사람들이 존재하기 때문이다.</p>
+<a id="more"></a>
+
+<blockquote>
+<p>객체 지향 프로그래밍은 캘리포니아에서만 나올 수 있는 것 중 이례적으로 나쁜 아이디어입니다.<br>(Object-oriented programming is an exceptionally bad idea which could only have originated in California.)<br>— Edsger W. Dijkstra</p>
+</blockquote>
+<p>그럼에도 불구하고 객체지향을 모르는 것은 허용하고 싶지 않다.</p>
+<p>어떠한 언어는 객체지향을 기본 패러다임으로 만들어진 언어도 있고 (자바나.. C#같은…)<br>의도하지 않더라도 현실과 많이 닮은 점들이 있기 때문에 코드를 짜다보면 자연스럽게 객체를 짜고있기 때문이다.</p>
+<p>자바스크립트 세계관에서는 객체지향이 어떻게 사용되는지 알아보자</p>
+<h2 id="객체-Object"><a href="#객체-Object" class="headerlink" title="객체 (Object)"></a>객체 (Object)</h2><p>객체는 무엇인가. 현실의 어떠한 물체를 생각해보자<br>현실의 어떠한 물체는 속성이 있고. 기능이 있다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">무게는 100g 정도 됩니다.</span><br><span class="line">색상은 은색입니다.</span><br><span class="line">소재는 철과 나무입니다.</span><br><span class="line">모양은 대체로 길고 뾰족한 모양입니다.</span><br><span class="line">손잡이를 가지고 있습니다.</span><br><span class="line">이름은 식칼이라고 부릅니다.</span><br></pre></td></tr></table></figure>
+<p>이것은 속성이다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">벨 수 있습니다.</span><br><span class="line">찌를 수 있습니다.</span><br><span class="line">자를 수 있습니다.</span><br><span class="line">손잡이를 이용하여 누를 수 있습니다.</span><br></pre></td></tr></table></figure>
+<p>이것은 기능이다.<br>말 그대로 객체는 속성과 기능을 가진 현실의 어떠한 물체를 본따서 컴퓨터에서 사용하려는 것이고, 이렇게 만들어진 것이 Object 인 것이다.</p>
+<h2 id="객체지향"><a href="#객체지향" class="headerlink" title="객체지향"></a>객체지향</h2><p>앞서 설명한 Object를 만들었다면 이러한 Object를 적극 활용하여 프로그래밍을 하자는 패러다임..<br>객체지향에서는 이 객체를 적극적으로 활용하기 위하여 몇가지 객체의 특징들을 약속해놓았다.</p>
+<h3 id="객체지향의-특징"><a href="#객체지향의-특징" class="headerlink" title="객체지향의 특징"></a>객체지향의 특징</h3><p>캡슐화 (Encapsulation)<br>추상화 (Abstraction)<br>상속 (Inheritance)<br>다형성 (Polymorphism)</p>
+<h4 id="캡슐화-Encapsulation"><a href="#캡슐화-Encapsulation" class="headerlink" title="캡슐화 (Encapsulation)"></a>캡슐화 (Encapsulation)</h4><p>캡슐화하는 이유는 두가지다.</p>
+<p>편의적인 면<br>보안적인 면<br>자 아무것도 없는 도마위에 원산지 라고만 쓰여있다.<br>이러면 당연히 무엇의 원산지인지 모르지 않을까?<br>그런데 식칼에 “원산지” 라고 쓰여있다.<br>식칼의 원산지일 것이라고 사람들은 연상하게 된다.<br>그래서 우리는 프로그래밍에서도 도마위에 식칼의원산지, 생선의원산지, 이런식으로 일일히 나열하는 것이 아닌.<br>생선을 만들고 그 안에 속성으로 원산지를 넣어주고,<br>식칼을 만들고 그 안에 속성으로 원산지를 넣어주어 캡슐화시킨다.<br>편리하지 않은가</p>
+<p>그렇다면 보안적인 면은 어떨까?<br>이것이 정확히 몇%의 합금인지 남들에게 알리고 싶지 않다면, 사실 이것을 남들에게 상해를 입힐 수 있는 기능도 있다는 것을 알리고 싶지 않다면?<br>이것을 숨기고 그냥 난 식칼이야 요리할때 써. 라고 건네주는 것만으로도 충분히 이 Object의 역할은 달성하지 않았을까<br>Object 의 숨기고 싶은 면, 혹은 굳이 안보여 줘도 되는 면들을 캡슐화를 통해 숨길 수 있다</p>
+<h4 id="추상화-abstraction"><a href="#추상화-abstraction" class="headerlink" title="추상화 (abstraction)"></a>추상화 (abstraction)</h4><p>객체에게 부탁한다. 이것좀 건네줘.<br>그런데 사실 이 건네준다는 게 엄청나게 복잡하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">이두근을 이완시켜 펼치고.</span><br><span class="line">다섯손가락 두번째마디들을 굽혀서 0.7J의 힘으로 누른 뒤</span><br><span class="line">다시 이두근을 45 수축 시킨뒤 상체를 돌려 나를 바라봐.</span><br><span class="line">그 이후 손을 펴서 나에게 건내줘.</span><br><span class="line">더 쪼갤 수 있는데 그만 쪼개겠다.</span><br><span class="line">하고싶은 말은 이것이다. 여기서 중요한 부분만을 추려낸다.</span><br><span class="line">물건을 들고, 나를보고, 건내줘.</span><br></pre></td></tr></table></figure>
+<p>물건또한 마찬가지겠지.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">사과가 대체로 빨갛지만. 사실은 상단부분은 체리애플블라썸 색이고, 중단부분은 베리베리스트로베리 색이고 하단부분은 로열레드 색이다.</span><br><span class="line">근데 그냥 빨갛다고 부르겠다.</span><br></pre></td></tr></table></figure>
+<p>자 이게 추상화다. 일련의 복잡한 과정, 속성들을 축약하고, 간소화시키는 것.<br>이러한 추상화가 깊어질수록 우리는 이 복잡한 것을 간단하게 볼 수 있게 된다.</p>
+<h4 id="상속-Inheritance"><a href="#상속-Inheritance" class="headerlink" title="상속 (Inheritance)"></a>상속 (Inheritance)</h4><p>상속은 생각보다 간단하다. 상속은 특히 웃긴게 무수히 많은 상속이 가능하다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">동물이 있다. 동물은 보통 이름이 있고, 생명활동을 한다.</span><br><span class="line">해양동물이 있다. 해양동물은 동물의 속성과 기능을 모두 갖고 있으며, 서식지가 바다이다</span><br><span class="line">갑각류가 있다. 갑각류는 해양동물의 속성과 기능을 모두 갖고 있으며, 피부가 단단하다.</span><br><span class="line">어류가 있다. 어류는 해양동물의 속성과 기능을 모두 갖고 있으며, 아가미로 호흡한다.</span><br><span class="line">참치가 있다. 참치는 어류의 속성과 기능을 모두 갖고 있으며, 지방질이 풍부하고 깊은곳에 서식한다.</span><br></pre></td></tr></table></figure>
+<p>정리해보자. 동물 &gt; 해양동물 &gt; 어류 &gt; 참치<br>여기서 화살표가 상속 이다.<br>부모의 속성과 기능이 자식에도 존재한다.<br>주의해야 할점은. 부모가 자식때문에 필요없는 속성을 갖고 있지 않게 표현해야 하고.<br>상속하지 않고 같은 부모를 사용해야 할 때를 구분하는 것이다.<br>여기서는 갑각류와 어류같이 해양생물 정도만 공통적이고 나머지는 차이가 존재하기 때문에 추가 상속하지 않았다.</p>
+<h4 id="다형성-Polymophism"><a href="#다형성-Polymophism" class="headerlink" title="다형성 (Polymophism)"></a>다형성 (Polymophism)</h4><p>사람이라는 Object가 있다. 이 사람은 동물을 상속받았다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">사람.인사해()</span><br><span class="line">헬로</span><br></pre></td></tr></table></figure>
+<p>예측된 결과다. 그럼 이번엔 개에게 시키겠다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">개.인사해()</span><br><span class="line">헬로</span><br></pre></td></tr></table></figure>
+<p>응? 이러한 일이 발생하지 않게 같은 이름의 기능이라도 다르게 작동시킬 수 있게 해주는 특징이 다형성이다.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">개.인사해()</span><br><span class="line">멍</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">고양이.인사해()</span><br><span class="line">야옹</span><br></pre></td></tr></table></figure>
+<p>다형성이 있어야 이러한 편리한 기능이 구현된다. 자바에서는 이를 구현하는 오버로딩과 오버라이딩이라는 방법이 있는데<br>여기서는 언급하지 않겠다.</p>
+<h2 id="인스턴스"><a href="#인스턴스" class="headerlink" title="인스턴스"></a>인스턴스</h2><p>자바에서는 클래스라는게 있다.</p>
+<p>클래스는 공장에서 물건을 찍어내는 틀, 사진을 찍어내는 청사진과 같다.<br>우리가 식칼을 만들려고 한다. 그때마다 위에서 설명 한 속성과 기능들을 나열해야 한다면?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">무게는 100g 정도 됩니다.</span><br><span class="line">색상은 은색입니다.</span><br><span class="line">소재는 철과 나무입니다.</span><br><span class="line">모양은 대체로 길고 뾰족한 모양입니다.</span><br><span class="line">손잡이를 가지고 있습니다.</span><br><span class="line">이름은 식칼이라고 부릅니다.</span><br><span class="line">벨 수 있습니다.</span><br><span class="line">찌를 수 있습니다.</span><br><span class="line">자를 수 있습니다.</span><br><span class="line">손잡이를 이용하여 누를 수 있습니다.</span><br></pre></td></tr></table></figure>
+<p>이런 물체를 만들어줘. 매번 이렇게 부탁할것인가?<br>자 이렇게 해보자<br>앞으로 내가 식칼클래스를 쓰면 항상 위에 나열한 속성과 기능이 담겨있어야 해.</p>
+<p>자 그럼 사용해보자</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">식칼클래스로 식칼을 만들어줘.</span><br></pre></td></tr></table></figure>
+<p>여기서 만들어진 식칼이 인스턴스 라는거다.<br>즉 한개의 클래스로 많은 인스턴스를 만들수 있다.</p>
+<p>그러면 자바스크립트에서는??</p>
+<p>자바스크립트에서는 클래스가 아니라 함수로 인스턴스를 만든다</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> instance = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+<p>함수를 실행했는데 인스턴스가 만들어졌다. 어떻게?<br>여기서 사용되는 게 prototype 이다 알아보자.</p>
+<h2 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h2><p>자바스크립트 객체는 Prototype이라는 내부 프로퍼티가 존재한다.<br>prototype은 본인이 원래 가져야할 속성과 기능의 명세. 즉 클래스와 같은 역할을 하고 있다.</p>
+<p>객체를 생성하면 자신이 상속받은 부모의 prototype은 <code>__proto__</code> 속성에 연결한다.<br>이를 통해 자바스크립트의 모든 객체는 자신의 부모 역할을 담당하는 객체와 연결되어 있다.<br>이것은 <strong>프로토타입</strong> 링크 라고 하겠다.<br>특정 객체의 프로퍼티나 메소드에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티 또는 메소드가 없다면<br><code>__proto__</code>이 가리키는 링크를 따라 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티나 메소드를 차례대로 검색한다.<br>이것을 <strong>프로토타입 체인</strong>이라 한다.</p>
+<p>자 이건 알겠고 그렇다면 함수는?</p>
+<p>함수를 정의하면 함수만 생성되는 것이 아니라 Prototype Object도 같이 생성이 된다.<br>Prototype Object는 <code>constructor</code>와 <code>__proto__</code>를 가지고 있다.<br>constructor는 함수인데. 이 함수는 만들어질 객체가 가져야할 property들이 정의되어 있다.<br>new 키워드와 함께 함수를 호출할 경우 constructor함수를 실행하고 <code>__proto__</code> 를 부모의prototype과 연결한다.<br>new로써 만들어진 모든 객체는 결국 부모.prototype 과 <code>__proto__</code> 링크로 연결된다는 것이다.</p>
+<p>결과적으로 이렇게 된다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">instance.__proto__ === <span class="built_in">Object</span>.prototype</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="인스턴스를-만드는-방법-실습"><a href="#인스턴스를-만드는-방법-실습" class="headerlink" title="인스턴스를 만드는 방법 실습"></a>인스턴스를 만드는 방법 실습</h3><h4 id="functional"><a href="#functional" class="headerlink" title="functional"></a>functional</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Human = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> instance = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  instance.name = <span class="string">&#x27;functional instantiation&#x27;</span>;</span><br><span class="line">  instance.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;기능입니다.&quot;</span>)</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = Human();</span><br><span class="line"></span><br><span class="line">instance.name;</span><br><span class="line"><span class="comment">// functional instantiation</span></span><br><span class="line"></span><br><span class="line">instance.func();</span><br><span class="line"><span class="comment">// 기능입니다.</span></span><br><span class="line">functional shared</span><br><span class="line"><span class="keyword">const</span> extend = <span class="function"><span class="keyword">function</span>(<span class="params">to, <span class="keyword">from</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> <span class="keyword">from</span>) &#123;</span><br><span class="line">    to[key] = <span class="keyword">from</span>[key];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sharedFunc = &#123;&#125;;</span><br><span class="line">sharedFunc.say = <span class="function"><span class="keyword">function</span>(<span class="params">hi</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.say = hi;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Human = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> instance = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">  instance.name = <span class="string">&#x27;functional shared instantiation&#x27;</span>;</span><br><span class="line">  instance.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;기능입니다.&quot;</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">  extend(instance, sharedFunc);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> instance = Human();</span><br><span class="line"></span><br><span class="line">instance.name;</span><br><span class="line"><span class="comment">// functional shared instantiation</span></span><br><span class="line"></span><br><span class="line">instance.func();</span><br><span class="line"><span class="comment">// 기능입니다.</span></span><br><span class="line"></span><br><span class="line">instance.say(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">instance.say;</span><br><span class="line"><span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<h4 id="prototypal"><a href="#prototypal" class="headerlink" title="prototypal"></a>prototypal</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> method = &#123;&#125;;</span><br><span class="line"> method.say = <span class="function"><span class="keyword">function</span>(<span class="params">hi</span>) </span>&#123;</span><br><span class="line">   <span class="built_in">this</span>.say = hi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Human = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> instance = <span class="built_in">Object</span>.create(method);</span><br><span class="line"></span><br><span class="line">  instance.name = <span class="string">&#x27;prototypal instantiation&#x27;</span>;</span><br><span class="line">  instance.func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;기능입니다.&quot;</span>)</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> instance = Human();</span><br><span class="line"></span><br><span class="line">instance.name;</span><br><span class="line"><span class="comment">// prototypal instantiation</span></span><br></pre></td></tr></table></figure>
+<h4 id="PseudoClassical"><a href="#PseudoClassical" class="headerlink" title="PseudoClassical"></a>PseudoClassical</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Human = <span class="function"><span class="keyword">function</span>(<span class="params">hi</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.say = hi;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Human.prototype.bye = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;bye bye&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> instance = <span class="keyword">new</span> Human(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line"></span><br><span class="line">instance.say;</span><br><span class="line"><span class="comment">// hello</span></span><br><span class="line"></span><br><span class="line">instance.bye();</span><br><span class="line"><span class="comment">// bye bye</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TIL/" rel="tag"># TIL</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          목차
+        </li>
+        <li class="sidebar-nav-overview">
+          흝어보기
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4-Object"><span class="nav-number">1.</span> <span class="nav-text">객체 (Object)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5"><span class="nav-number">2.</span> <span class="nav-text">객체지향</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98-%ED%8A%B9%EC%A7%95"><span class="nav-number">2.1.</span> <span class="nav-text">객체지향의 특징</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%BA%A1%EC%8A%90%ED%99%94-Encapsulation"><span class="nav-number">2.1.1.</span> <span class="nav-text">캡슐화 (Encapsulation)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%B6%94%EC%83%81%ED%99%94-abstraction"><span class="nav-number">2.1.2.</span> <span class="nav-text">추상화 (abstraction)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EC%83%81%EC%86%8D-Inheritance"><span class="nav-number">2.1.3.</span> <span class="nav-text">상속 (Inheritance)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EB%8B%A4%ED%98%95%EC%84%B1-Polymophism"><span class="nav-number">2.1.4.</span> <span class="nav-text">다형성 (Polymophism)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4"><span class="nav-number">3.</span> <span class="nav-text">인스턴스</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype"><span class="nav-number">4.</span> <span class="nav-text">Prototype</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EB%A5%BC-%EB%A7%8C%EB%93%9C%EB%8A%94-%EB%B0%A9%EB%B2%95-%EC%8B%A4%EC%8A%B5"><span class="nav-number">4.1.</span> <span class="nav-text">인스턴스를 만드는 방법 실습</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#functional"><span class="nav-number">4.1.1.</span> <span class="nav-text">functional</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#prototypal"><span class="nav-number">4.1.2.</span> <span class="nav-text">prototypal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PseudoClassical"><span class="nav-number">4.1.3.</span> <span class="nav-text">PseudoClassical</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">afashs</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">포스트</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">카테고리</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">태그</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/afashs" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;afashs" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:dev.afashs@gmail.com" title="E-Mail → mailto:dev.afashs@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">afashs</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://afashs.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://afashs.github.io/2021/01/23/oop/";
+    this.page.identifier = "2021/01/23/oop/";
+    this.page.title = "Object Oriented Programming";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://afashs.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
