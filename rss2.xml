@@ -9,13 +9,13 @@
     <atom:link href="http://afashs.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 23 Jan 2021 16:54:35 GMT</pubDate>
+    <pubDate>Sat, 23 Jan 2021 16:55:18 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>queue, stack</title>
-      <link>http://afashs.github.io/2021/01/23/queue/</link>
-      <guid>http://afashs.github.io/2021/01/23/queue/</guid>
+      <link>http://afashs.github.io/2021/01/23/queuestack/</link>
+      <guid>http://afashs.github.io/2021/01/23/queuestack/</guid>
       <pubDate>Sat, 23 Jan 2021 10:22:33 GMT</pubDate>
       
       <description>&lt;p&gt;스택으로 큐를 구현해보고, 큐로 스택을 구현해보면서 분석해보자.&lt;br&gt;Implement Queue using Stack, Implement Stack using Queue&lt;/p&gt;</description>
@@ -31,7 +31,7 @@
       <category domain="http://afashs.github.io/tags/data-structure/">data structure</category>
       
       
-      <comments>http://afashs.github.io/2021/01/23/queue/#disqus_thread</comments>
+      <comments>http://afashs.github.io/2021/01/23/queuestack/#disqus_thread</comments>
       
     </item>
     

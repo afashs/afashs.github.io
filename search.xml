@@ -100,7 +100,7 @@
   </entry>
   <entry>
     <title>queue, stack</title>
-    <url>/2021/01/23/queue/</url>
+    <url>/2021/01/23/queuestack/</url>
     <content><![CDATA[<p>스택으로 큐를 구현해보고, 큐로 스택을 구현해보면서 분석해보자.<br>Implement Queue using Stack, Implement Stack using Queue</p>
 <a id="more"></a>
 
