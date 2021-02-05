@@ -155,4 +155,147 @@
         <category>network</category>
       </categories>
   </entry>
+  <entry>
+    <title>구글드라이브 image link converter</title>
+    <url>/2021/02/05/converter/</url>
+    <content><![CDATA[<p>구글드라이브를 이미지 서버로 사용하고 싶을 때 공유할 수 있는 이미지 링크로 변환해주는 툴</p>
+<a id="more"></a>
+
+<p>사용법은 컨버터 하단에 있습니다</p>
+<h2 id="컨버터"><a href="#컨버터" class="headerlink" title="컨버터"></a>컨버터</h2>  <style>
+    #converter {
+      padding: 20px 20px;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      width: 100%;
+      padding: 15px 15px;
+    }
+
+    #converter textarea {
+      display: block;
+      white-space: wrap;
+      border: 1px solid #888;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 5px 5px;
+      width: 100%;
+      height: 60px;
+    }
+
+    #converter label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    #converter button {
+      font-weight: bold;
+    }
+
+    #btn-convert {
+      width: 100%;
+    }
+
+    #convert-result {
+      margin-top: 20px;
+    }
+  </style>
+  <div id="converter">
+    <label>Google Drive path</label>
+    <textarea id="gd-url" placeholder="Input Google Drive Url"></textarea>
+    <button id="btn-convert" class="btn btn-primary">Make Google Drive Path Linkable</button>
+    <div id="convert-result">
+      <label for="result">Linkable Image path</label>
+      <textarea id="result" name="result" readonly></textarea>
+      <button id="btn-save-result-cb" class="btn btn-success pull-right" data-clipboard-target="#result">
+        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+        Save to Clipboard
+      </button>
+      <br><br>
+      <label for="result-img-tag">Image Tag</label>
+      <textarea id="result-img-tag" name="result" readonly></textarea>
+      <button id="btn-save-result-img-tag-cb" class="btn btn-success pull-right" data-clipboard-target="#result-img-tag">
+        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+        Save to Clipboard
+      </button>
+    </div>
+    <br><br><br>
+      <p align="center">
+      <b>Preview image</b>
+      </p>
+    <p align="center">
+      <img id="preview" alt="image preview" src='https://www.google.com/drive/static/images/drive/logo-drive.png' class="img-thumbnail" style="max-width: 200px"/><br>
+    </p>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+  <script>
+    var gdUrl = $("#gd-url");
+    $("#btn-convert").on("click", function(event) {
+
+      if (!isValidUrl(gdUrl.val())) {
+        alert("You have inputted invalid path.");
+        gdUrl.val("");
+        return;
+      }
+
+      var gdId = extractFileId(gdUrl.val());
+      var prefix = "http://drive.google.com/uc?export=view&id=";
+      $("#result").val(prefix + gdId);
+      $("#result-img-tag").val(
+        "<img src='" +
+        prefix + gdId +
+        "' /><br>");
+      $("#preview").attr("src", prefix + gdId);
+    });
+
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function(e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+
+      e.clearSelection();
+    });
+
+    clipboard.on('error', function(e) {
+      console.error('Action:', e.action);
+      console.error('Trigger:', e.trigger);
+    });
+
+    // validity check. ref: https://gist.github.com/jlong/2428561
+    function isValidUrl(url) {
+      // to be impl...
+      var parser = document.createElement('a');
+      parser.href = url;
+
+      if(url === '' || parser.hostname !== "drive.google.com" || !parser.pathname.includes("/file/d/"))
+        return false;
+
+      return true;
+    }
+
+    function extractFileId(url) {
+      if (!url) 
+        url = window.location.href;
+
+      var strip = url.replace(/https:\/\/drive.google.com\/file\/d\//gi, "")
+      .replace(/\/view\?[a-zA-Z=\/]+/gi, "");
+
+      return strip;
+    }
+  </script>
+
+
+<h2 id="사용법"><a href="#사용법" class="headerlink" title="사용법"></a>사용법</h2><ol>
+<li>구글 드라이브에 파일을 올리고 해당 이미지를 우클릭 -&gt; 공유<br><img src="http://drive.google.com/uc?export=view&id=1KqxOiJvc8vEN1du2PkCnnGf6DYt0FPC3" alt="공유"></li>
+<li>링크가 있는 모든 사용자로 변경<br><img src="http://drive.google.com/uc?export=view&id=1bgPtFxedp2fxjNoXBttxobxNIcADrQzz" alt="모든사용자로 변경"></li>
+<li>생성된 링크 복사<br><img src="http://drive.google.com/uc?export=view&id=1xpt9jc5OM5z312oXtciUvENilRPp2CGD" alt="생성된 링크 복사"></li>
+<li>링크를 컨버터 <code>Google Drive path</code> 에 입력</li>
+<li>변환된 링크<code>Linkable Image path</code> 이미지태그<code>Image Tag</code>를 붙여넣기 하면 완료!</li>
+</ol>
+]]></content>
+  </entry>
 </search>
