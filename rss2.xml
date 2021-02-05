@@ -9,8 +9,31 @@
     <atom:link href="http://afashs.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 05 Feb 2021 00:25:52 GMT</pubDate>
+    <pubDate>Fri, 05 Feb 2021 01:57:55 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>http</title>
+      <link>http://afashs.github.io/2021/02/05/http/</link>
+      <guid>http://afashs.github.io/2021/02/05/http/</guid>
+      <pubDate>Fri, 05 Feb 2021 01:21:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;HTTP 헤더에 대한 분석과, 응답 상태 코드 (Status Codes) 그리고 브라우저의 Network 탭 및 브라우저를 통해 일어나는 일들&lt;/p&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<p>HTTP 헤더에 대한 분석과, 응답 상태 코드 (Status Codes) 그리고 브라우저의 Network 탭 및 브라우저를 통해 일어나는 일들</p><a id="more"></a><h2 id="url-uri"><a href="#url-uri" class="headerlink" title="url ? uri?"></a>url ? uri?</h2><h3 id="Uniform-Resource-location-말그대로-location"><a href="#Uniform-Resource-location-말그대로-location" class="headerlink" title="Uniform Resource location 말그대로 location!"></a>Uniform Resource location 말그대로 location!</h3><p>문서의 위치를 전해주면 해당 서버의 location에 적혀있는 폴더로 들어가서 파일을 찾아서 준다.<br>과거에는 http 요청에 대해서 서버가 특정 문서를 응답하기만 했다고 한다. 하지만 지금은?</p><h3 id="Uniform-Resource-Identifier-말-그대로-식별자"><a href="#Uniform-Resource-Identifier-말-그대로-식별자" class="headerlink" title="Uniform Resource Identifier 말 그대로 식별자"></a>Uniform Resource Identifier 말 그대로 식별자</h3><p>서버에서 파일뿐만 아니라 각종 비즈니스로직을 처리하는 것 또한 가능해졌기 때문에 location이 아닌 좀더 큰 개념으로 식별자 라고 부른다.</p><ul><li>URL : 파일 응답</li><li>URI : 파일 응답 + 비즈니스로직 처리</li></ul><h2 id="HTTP-혜더에는-무엇이-들어있는가"><a href="#HTTP-혜더에는-무엇이-들어있는가" class="headerlink" title="HTTP 혜더에는 무엇이 들어있는가?"></a>HTTP 혜더에는 무엇이 들어있는가?</h2><p>엄청 많긴 하지만 일단 중요한 몇가지 정도만 알자.</p><h3 id="요청-헤더"><a href="#요청-헤더" class="headerlink" title="요청 헤더"></a>요청 헤더</h3><p>요청을 받는 호스트주소<br>http 메소드 (get, post 등등)<br>쿠키 등 인증정보<br>클라이언트의 정보 (브라우저 or OS버전 등)</p><h3 id="응답-헤더"><a href="#응답-헤더" class="headerlink" title="응답 헤더"></a>응답 헤더</h3><p>status 코드 (200, 404 등등 많음)<br>응답타입(content type) : 문서인지 json인지… 인코딩은 utf로 되어있는지 등등<br>허용하는 클라이언트 목록 (CORS 정책)</p>]]></content:encoded>
+      
+      
+      <category domain="http://afashs.github.io/categories/network/">network</category>
+      
+      
+      <category domain="http://afashs.github.io/tags/study/">study</category>
+      
+      
+      <comments>http://afashs.github.io/2021/02/05/http/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>구글드라이브 image link converter</title>
