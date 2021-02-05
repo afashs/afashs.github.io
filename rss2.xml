@@ -9,8 +9,35 @@
     <atom:link href="http://afashs.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Sat, 23 Jan 2021 17:02:28 GMT</pubDate>
+    <pubDate>Fri, 05 Feb 2021 00:05:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>package.json</title>
+      <link>http://afashs.github.io/2021/02/05/package-json/</link>
+      <guid>http://afashs.github.io/2021/02/05/package-json/</guid>
+      <pubDate>Fri, 05 Feb 2021 00:00:19 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;package.json&lt;/p&gt;
+&lt;h2 id=&quot;npm&quot;&gt;&lt;a href=&quot;#npm&quot; class=&quot;headerlink&quot; title=&quot;npm&quot;&gt;&lt;/a&gt;npm&lt;/h2&gt;&lt;p&gt;node package manager&lt;br&gt;노드js 생태계의 특징 중 하나. 각종 </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>package.json</p><h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>node package manager<br>노드js 생태계의 특징 중 하나. 각종 오픈소스 라이브러리를 설치, 관리해주는 툴<br>내 node 프로젝트에 쉽게 모듈화 되어있는 라이브러리를 추가하고 관리할 수 있다.</p><h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>npm 에서 라이브러리들을 관리해 줄 수 있게 나의 node프로젝트의 버전, 이름과 필요한 라이브러리들을 명시해 놓은 명세서와 같다.<br>명세서에 적힌 라이브러리들을 <code>npm install</code> 을 통하여 설치할 수 있으며 <code>save</code>를 통하여 이곳에 필요한 라이브러리들을 추가하여<br>어떤 라이브러리가 이 프로젝트에 포함되어야 하는지 명시해 줄 수 있다.</p>]]></content:encoded>
+      
+      
+      <category domain="http://afashs.github.io/categories/node/">node</category>
+      
+      
+      <category domain="http://afashs.github.io/tags/study/">study</category>
+      
+      
+      <comments>http://afashs.github.io/2021/02/05/package-json/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>queue, stack</title>

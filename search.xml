@@ -126,4 +126,18 @@
         <tag>inheritance pattern</tag>
       </tags>
   </entry>
+  <entry>
+    <title>package.json</title>
+    <url>/2021/02/05/package-json/</url>
+    <content><![CDATA[<p>package.json</p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>node package manager<br>노드js 생태계의 특징 중 하나. 각종 오픈소스 라이브러리를 설치, 관리해주는 툴<br>내 node 프로젝트에 쉽게 모듈화 되어있는 라이브러리를 추가하고 관리할 수 있다.</p>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>npm 에서 라이브러리들을 관리해 줄 수 있게 나의 node프로젝트의 버전, 이름과 필요한 라이브러리들을 명시해 놓은 명세서와 같다.<br>명세서에 적힌 라이브러리들을 <code>npm install</code> 을 통하여 설치할 수 있으며 <code>save</code>를 통하여 이곳에 필요한 라이브러리들을 추가하여<br>어떤 라이브러리가 이 프로젝트에 포함되어야 하는지 명시해 줄 수 있다.</p>
+]]></content>
+      <categories>
+        <category>node</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
 </search>
