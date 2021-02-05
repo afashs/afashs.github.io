@@ -130,6 +130,8 @@
     <title>package.json</title>
     <url>/2021/02/05/package-json/</url>
     <content><![CDATA[<p>package.json</p>
+<a id="more"></a>
+
 <h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>node package manager<br>노드js 생태계의 특징 중 하나. 각종 오픈소스 라이브러리를 설치, 관리해주는 툴<br>내 node 프로젝트에 쉽게 모듈화 되어있는 라이브러리를 추가하고 관리할 수 있다.</p>
 <h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>npm 에서 라이브러리들을 관리해 줄 수 있게 나의 node프로젝트의 버전, 이름과 필요한 라이브러리들을 명시해 놓은 명세서와 같다.<br>명세서에 적힌 라이브러리들을 <code>npm install</code> 을 통하여 설치할 수 있으며 <code>save</code>를 통하여 이곳에 필요한 라이브러리들을 추가하여<br>어떤 라이브러리가 이 프로젝트에 포함되어야 하는지 명시해 줄 수 있다.</p>
 ]]></content>
@@ -139,5 +141,18 @@
       <tags>
         <tag>study</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>url</title>
+    <url>/2021/02/05/url/</url>
+    <content><![CDATA[<p>url 용어정리</p>
+<a id="more"></a>
+
+<p>그림 한장으로 깔끔한 설명이 가능하다.</p>
+<p><img src="http://drive.google.com/uc?export=view&id=1fhr54MHXS0x3q3uKnD6oOTav-sw0E5ys" alt="url 용어정리"></p>
+]]></content>
+      <categories>
+        <category>network</category>
+      </categories>
   </entry>
 </search>
