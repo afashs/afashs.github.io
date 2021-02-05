@@ -310,7 +310,7 @@
 <li>URL : 파일 응답</li>
 <li>URI : 파일 응답 + 비즈니스로직 처리</li>
 </ul>
-<h2 id="HTTP-혜더에는-무엇이-들어있는가"><a href="#HTTP-혜더에는-무엇이-들어있는가" class="headerlink" title="HTTP 혜더에는 무엇이 들어있는가?"></a>HTTP 혜더에는 무엇이 들어있는가?</h2><p>엄청 많긴 하지만 일단 중요한 몇가지 정도만 알자.</p>
+<h2 id="HTTP-헤더에는-무엇이-들어있는가"><a href="#HTTP-헤더에는-무엇이-들어있는가" class="headerlink" title="HTTP 헤더에는 무엇이 들어있는가?"></a>HTTP 헤더에는 무엇이 들어있는가?</h2><p>엄청 많긴 하지만 일단 중요한 몇가지 정도만 알자.</p>
 <h3 id="요청-헤더"><a href="#요청-헤더" class="headerlink" title="요청 헤더"></a>요청 헤더</h3><p>요청을 받는 호스트주소<br>http 메소드 (get, post 등등)<br>쿠키 등 인증정보<br>클라이언트의 정보 (브라우저 or OS버전 등)</p>
 <h3 id="응답-헤더"><a href="#응답-헤더" class="headerlink" title="응답 헤더"></a>응답 헤더</h3><p>status 코드 (200, 404 등등 많음)<br>응답타입(content type) : 문서인지 json인지… 인코딩은 utf로 되어있는지 등등<br>허용하는 클라이언트 목록 (CORS 정책)</p>
 ]]></content>

@@ -29,7 +29,7 @@
 <meta property="og:description" content="HTTP 헤더에 대한 분석과, 응답 상태 코드 (Status Codes) 그리고 브라우저의 Network 탭 및 브라우저를 통해 일어나는 일들">
 <meta property="og:locale" content="ko_KR">
 <meta property="article:published_time" content="2021-02-05T01:21:00.000Z">
-<meta property="article:modified_time" content="2021-02-05T01:57:55.621Z">
+<meta property="article:modified_time" content="2021-02-05T09:24:01.485Z">
 <meta property="article:author" content="afashs">
 <meta property="article:tag" content="study">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
               <span class="post-meta-item-text">작성일</span>
               
 
-              <time title="Post created: 2021-02-05 10:21:00 / Updated at: 10:57:55" itemprop="dateCreated datePublished" datetime="2021-02-05T10:21:00+09:00">2021-02-05</time>
+              <time title="Post created: 2021-02-05 10:21:00 / Updated at: 18:24:01" itemprop="dateCreated datePublished" datetime="2021-02-05T10:21:00+09:00">2021-02-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,7 +255,7 @@
 <li>URL : 파일 응답</li>
 <li>URI : 파일 응답 + 비즈니스로직 처리</li>
 </ul>
-<h2 id="HTTP-혜더에는-무엇이-들어있는가"><a href="#HTTP-혜더에는-무엇이-들어있는가" class="headerlink" title="HTTP 혜더에는 무엇이 들어있는가?"></a>HTTP 혜더에는 무엇이 들어있는가?</h2><p>엄청 많긴 하지만 일단 중요한 몇가지 정도만 알자.</p>
+<h2 id="HTTP-헤더에는-무엇이-들어있는가"><a href="#HTTP-헤더에는-무엇이-들어있는가" class="headerlink" title="HTTP 헤더에는 무엇이 들어있는가?"></a>HTTP 헤더에는 무엇이 들어있는가?</h2><p>엄청 많긴 하지만 일단 중요한 몇가지 정도만 알자.</p>
 <h3 id="요청-헤더"><a href="#요청-헤더" class="headerlink" title="요청 헤더"></a>요청 헤더</h3><p>요청을 받는 호스트주소<br>http 메소드 (get, post 등등)<br>쿠키 등 인증정보<br>클라이언트의 정보 (브라우저 or OS버전 등)</p>
 <h3 id="응답-헤더"><a href="#응답-헤더" class="headerlink" title="응답 헤더"></a>응답 헤더</h3><p>status 코드 (200, 404 등등 많음)<br>응답타입(content type) : 문서인지 json인지… 인코딩은 utf로 되어있는지 등등<br>허용하는 클라이언트 목록 (CORS 정책)</p>
 
@@ -345,7 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#url-uri"><span class="nav-number">1.</span> <span class="nav-text">url ? uri?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Resource-location-%EB%A7%90%EA%B7%B8%EB%8C%80%EB%A1%9C-location"><span class="nav-number">1.1.</span> <span class="nav-text">Uniform Resource location 말그대로 location!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Resource-Identifier-%EB%A7%90-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%8B%9D%EB%B3%84%EC%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">Uniform Resource Identifier 말 그대로 식별자</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%ED%98%9C%EB%8D%94%EC%97%90%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4-%EB%93%A4%EC%96%B4%EC%9E%88%EB%8A%94%EA%B0%80"><span class="nav-number">2.</span> <span class="nav-text">HTTP 혜더에는 무엇이 들어있는가?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9A%94%EC%B2%AD-%ED%97%A4%EB%8D%94"><span class="nav-number">2.1.</span> <span class="nav-text">요청 헤더</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%91%EB%8B%B5-%ED%97%A4%EB%8D%94"><span class="nav-number">2.2.</span> <span class="nav-text">응답 헤더</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#url-uri"><span class="nav-number">1.</span> <span class="nav-text">url ? uri?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Resource-location-%EB%A7%90%EA%B7%B8%EB%8C%80%EB%A1%9C-location"><span class="nav-number">1.1.</span> <span class="nav-text">Uniform Resource location 말그대로 location!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-Resource-Identifier-%EB%A7%90-%EA%B7%B8%EB%8C%80%EB%A1%9C-%EC%8B%9D%EB%B3%84%EC%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">Uniform Resource Identifier 말 그대로 식별자</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-%ED%97%A4%EB%8D%94%EC%97%90%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4-%EB%93%A4%EC%96%B4%EC%9E%88%EB%8A%94%EA%B0%80"><span class="nav-number">2.</span> <span class="nav-text">HTTP 헤더에는 무엇이 들어있는가?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9A%94%EC%B2%AD-%ED%97%A4%EB%8D%94"><span class="nav-number">2.1.</span> <span class="nav-text">요청 헤더</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9D%91%EB%8B%B5-%ED%97%A4%EB%8D%94"><span class="nav-number">2.2.</span> <span class="nav-text">응답 헤더</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
