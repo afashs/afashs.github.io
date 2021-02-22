@@ -321,4 +321,52 @@
         <tag>study</tag>
       </tags>
   </entry>
+  <entry>
+    <title>redux</title>
+    <url>/2021/02/22/redux/</url>
+    <content><![CDATA[<h2 id="cra리엑트에-리덕스-끼얹기"><a href="#cra리엑트에-리덕스-끼얹기" class="headerlink" title="cra리엑트에 리덕스 끼얹기"></a>cra리엑트에 리덕스 끼얹기</h2><a id="more"></a>
+
+<p>디렉터리 설계방법이 굉장히 다양한데<br>redux 디렉토리를 만들어서 관리하는 방식으로 구현해본다면?</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">src</span><br><span class="line">  - component</span><br><span class="line">    subscribers.js</span><br><span class="line">    display.js</span><br><span class="line">  - redux</span><br><span class="line">    stors.js</span><br><span class="line">    - subscribers</span><br><span class="line">      types.js</span><br><span class="line">        &#123;ADD_SUBSCRIBER&#125;</span><br><span class="line">        &#123;REMOVE_SUBSCRIBER&#125;</span><br><span class="line">      actions.js</span><br><span class="line">      reducer.js</span><br><span class="line">        &#123;initialState&#125;</span><br><span class="line">        &#123;subscribersReducer(state,action) -&gt; <span class="keyword">switch</span> (ADD... / REMOVE... / <span class="keyword">default</span>)&#125;</span><br></pre></td></tr></table></figure>
+<p>app.css 간단하게 바꾸기<br>component만들고 app.js 에 컴포넌트 적용<br>types 먼저 상수로 만들어서 export<br>import 해서 actions 만들기<br>reducer 만들고 actions 분기처리<br>store에 reducer 불러와서 store create 하면 됨</p>
+<p>app에서는 {provider} from react-redux 로 감싸주어야 한다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;Provider store=&#123;store&#125;&gt;</span><br></pre></td></tr></table></figure>
+<p>component 에서는 connect로 연결해주어야됨 { connect } from react-redux<br>이 커넥트를 이용하면 다른 컴포넌트들에게도 store의 상태를 연결해줄 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(Subscriber)</span><br></pre></td></tr></table></figure>
+<p>redux connect로 검색을 해보면 중간에 들어가는 parameter들을 알 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function">(<span class="params">state</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    count: state.count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>component 에서 { action } from actions<br>함수버전</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mapDispatchToProps = <span class="function">(<span class="params">dispatch</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    addSubscriber: <span class="function">() =&gt;</span> dispatch(addSubscriber()) <span class="comment">// 받아온 action을 연결해주는 거다.</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>객체버전</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> mapDispatchToProps = &#123;</span><br><span class="line">  addSubscriber</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>다른 reducer를 만든다면? combine reducer 를 만들어야한다.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">redux/Rootreducer.js</span><br><span class="line"><span class="keyword">import</span> &#123; combineReducer&#125; <span class="keyword">from</span> <span class="string">&#x27;redux&#x27;</span></span><br><span class="line"><span class="keyword">import</span> subReducer <span class="keyword">from</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> viewReducer <span class="keyword">from</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rootReducer = combineReducers(&#123;</span><br><span class="line">  views: viewReducer,</span><br><span class="line">  subs: subReducer</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> rootReducer;</span><br></pre></td></tr></table></figure>
+<p>store.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">rootReducer <span class="keyword">from</span> <span class="string">&#x27;./rootReducer&#x27;</span></span><br><span class="line"><span class="keyword">const</span> store = createStore(rootReducer);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">기존 state.count 에서</span><br><span class="line"> state.subscribers.count 로 변경 후</span><br><span class="line"> destructuriong 을 통해 &#123; subscribers &#125; 로 가져옴,</span><br><span class="line"> subscribers.count로 변경</span><br></pre></td></tr></table></figure>
+<p>redux안에 export용 종합 action 파일 index.js 만들기</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; addSubscriber, removeSubscriber&#125; <span class="keyword">from</span> <span class="string">&#x27;./subscribers/actions&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">export</span> &#123; accView &#125; <span class="keyword">from</span> <span class="string">&#x27;./views/actions&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>… 작성중…</p>
+]]></content>
+      <categories>
+        <category>library</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>알고리즘_기초_1</title>
+    <url>/2021/02/06/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-1/</url>
+    <content><![CDATA[<p>컴퓨터 알고리즘이란 컴퓨터를 이용하여 문제를 해결하는 방법</p>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>study</tag>
+      </tags>
+  </entry>
 </search>

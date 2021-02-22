@@ -9,6 +9,22 @@
 
 
     <url>
+        <loc>http://afashs.github.io/2021/02/22/redux/</loc>
+        <lastmod>2021-02-22T06:02:34.152Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://afashs.github.io/2021/02/06/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B8%B0%EC%B4%88-1/</loc>
+        <lastmod>2021-02-06T01:37:38.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://afashs.github.io/2021/02/05/http/</loc>
         <lastmod>2021-02-05T09:24:01.485Z</lastmod>
         <changefreq>weekly</changefreq>
